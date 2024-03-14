@@ -5,7 +5,7 @@ interface Props {
 }
 
 export const AppSettings: FC<Props> = ({setSettings}) => {
-    const inputRef: any= useRef({
+    const inputRef: any= useRef<any>({
         timeOfSunset: false,
         feelsLike: false,
         airHummidity: false
@@ -13,7 +13,7 @@ export const AppSettings: FC<Props> = ({setSettings}) => {
 
     const handleSubmit: React.ChangeEventHandler<HTMLFormElement> = (e) => {
         e.preventDefault()
-        const values = {
+        const values: any = {
             timeOfSunset: inputRef.current.timeOfSunset.checked,
             feelsLike: inputRef.current.feelsLike.checked,
             airHummidity: inputRef.current.airHummidity.checked
