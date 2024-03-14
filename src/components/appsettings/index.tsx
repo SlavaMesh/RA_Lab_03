@@ -5,7 +5,7 @@ interface Props {
 }
 
 export const AppSettings: FC<Props> = ({setSettings}) => {
-    const inputRef = useRef({
+    const inputRef: any= useRef({
         timeOfSunset: false,
         feelsLike: false,
         airHummidity: false
