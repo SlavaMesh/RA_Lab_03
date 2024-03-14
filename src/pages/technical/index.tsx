@@ -1,4 +1,4 @@
-import { CityCard } from "../../components/citycard"
+
 
 
 export const Technical = () => {
