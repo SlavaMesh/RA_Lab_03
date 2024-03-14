@@ -32,9 +32,9 @@ type Crd = {
 };
 
 type Settings = {
-  timeOfSunset: boolean,
-  feelsLike: boolean,
-  airHummidity: boolean
+  timeOfSunset: any,
+  feelsLike: any,
+  airHummidity: any
 };
 
 
