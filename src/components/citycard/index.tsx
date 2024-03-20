@@ -5,14 +5,16 @@ interface City {
     long: number
     name: string
     setCityList: React.Dispatch<React.SetStateAction<any>>
+    setCitySearchList: React.Dispatch<React.SetStateAction<any>>
     setCrd: React.Dispatch<React.SetStateAction<any>>     
     }
 
 
-export const CityCard: FC<City> = ({ name, setCityList, setCrd, lat, long}) => {
+export const CityCard: FC<City> = ({ setCitySearchList, name, setCityList, setCrd, lat, long}) => {
     
     const handleOnDelete = () => {
         setCityList((prev: any) => prev.filter((el:{ name: string}) => el.name !== name))
+        setCitySearchList((prev: any) => prev.filter((el:{ name: string}) => el.name !== name))
         
     }
     

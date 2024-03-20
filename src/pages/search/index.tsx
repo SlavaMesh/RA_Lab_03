@@ -16,9 +16,10 @@ const filterCity = (searchString: string, cityArray: [{name: string, lat: number
 interface Props  {
   setCrd: React.Dispatch<React.SetStateAction<any>>
   setSettings: React.Dispatch<React.SetStateAction<any>>
+  settings: any
 }
 
-export const Search: FC<Props> = ({ setCrd, setSettings }) => {
+export const Search: FC<Props> = ({ setCrd, setSettings, settings }) => {
 
   const [value, setValue] = useState<string>('');
 
@@ -72,6 +73,7 @@ export const Search: FC<Props> = ({ setCrd, setSettings }) => {
       console.log(cityList)
       localStorage.setItem('cities', JSON.stringify([...cityList, cityItem]))
       setCityList((prev: any) => [...prev, cityItem])
+      setCitySearchList((prev: any) => [...prev, cityItem])
       console.log(localStorage)
       setValue('')
       setCity({name: '', lat: NaN, long: NaN})
@@ -103,14 +105,14 @@ export const Search: FC<Props> = ({ setCrd, setSettings }) => {
       <div className="flex flex-col mt-4">
         <p className="text-xl">Click to switch the city on home page</p>
         {/* { cityList.map((el:any) => <CityCard setCrd={setCrd} setCityList={setCityList}  name={el.name} lat={el.lat} long={el.long} key={el.name}/>) } */}
-        { citySearchList.map((el:any) => <CityCard setCrd={setCrd} setCityList={setCityList}  name={el.name} lat={el.lat} long={el.long} key={el.name}/>) }
-        {cityList && <button 
+        { citySearchList.map((el:any) => <CityCard setCitySearchList={setCitySearchList} setCrd={setCrd} setCityList={setCityList}  name={el.name} lat={el.lat} long={el.long} key={el.name}/>) }
+        {citySearchList.length > 0 && <button 
           className="w-[150px] rounded-lg bg-blue-500 text-white font-bold mt-2 py-2 px-4" 
           onClick={() => localStorage.setItem('cities', JSON.stringify([...cityList]))}>
           Save changings
         </button>}
       </div>
-      <AppSettings setSettings={setSettings}/>
+      <AppSettings setSettings={setSettings} settings={settings}/>
 
       <form className="pl-4 pt-4 flex flex-col space-y-4">
         <label className="text-xl">Search city into your personal list</label>

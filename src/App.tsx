@@ -112,7 +112,7 @@ function App() {
                         humidity={weatherData.humidity}
         />} />
         <Route path='/settings' element={ <Settings /> } />
-        <Route path='/search' element={ <Search setCrd={setCrd} setSettings={setSettings}/> } />
+        <Route path='/search' element={ <Search setCrd={setCrd} setSettings={setSettings} settings={settings}/> } />
         <Route path='/technical' element={ <Technical /> } />
       </Routes>
     </>
